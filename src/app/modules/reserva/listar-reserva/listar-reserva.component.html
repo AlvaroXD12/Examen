@@ -1,0 +1,42 @@
+<div>
+    <a href="/menu"><img src="/assets/Imagenes/atras.png" class="boton_regresar"></a>
+    <p class="Titulo">Lista de Reservas</p>
+</div>
+<div class="crear_buscar">
+    <div class="boton_crear">
+        <a  [routerLink]="['/home/reserva/registrar']" class="crear">
+            <p>REGISTRAR</p>
+        </a>
+    </div>
+</div>
+<div class="container_tabla">
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th class="id">N°</th>
+                <th class="nombre_afiliacion">Clase</th>
+                <th class="nombre_afiliacion">Destino</th>
+                <th class="nombre_afiliacion">Cliente</th>
+                <th class="nombre_afiliacion">Hotel</th>
+                <th class="nombre_afiliacion">Sucursal</th>
+                <th colspan="3" class="acción">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rese of reserva">
+                <td>{{rese.id}}</td>
+                <td>{{rese.clase}}</td>
+                <td>{{rese.vuelo?.destino}}</td>
+                <td>{{rese.cliente?.nombres}}</td>
+                <td>{{rese.hotel?.nombre}}</td> 
+                <td>{{rese.sucursal?.direccion}}</td>                  
+                <td class="acción">
+                    <a ><img [routerLink]="['/home/reserva/editar', rese.id]"
+                            src="/assets/Imagenes/editar.png" class="descargar"></a>
+                    <a><img (click)="rese.id && Eliminar(rese.id)"
+                            src="/assets/Imagenes/eliminar.png" class="descargar"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

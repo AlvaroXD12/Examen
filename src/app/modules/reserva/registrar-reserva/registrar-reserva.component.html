@@ -1,0 +1,42 @@
+
+<div>
+    <a routerLink="/home/alquiler">
+      <img src="/assets/Imagenes/atras.png" class="boton_regresar" alt="Botón Regresar" />
+    </a>
+    <p class="Titulo">Registrar Reserva</p>
+  </div>
+  
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="espacio">
+        <label for="fechaEntrada" class="fecha_inicio">Clase:</label>
+        <input type="text" id="clase" [(ngModel)] = "reserva.clase" name="clase" class="form-control" />
+      </div>
+
+    <div class="espacio">
+      <label for="lector" class="datos">Destino:</label>
+      <select class="tipo_doc" id="lectores" [(ngModel)]="reserva.vuelo" name="lectores">
+        <option *ngFor="let vue of vuelo" [ngValue]="vue">{{vue.destino}}</option>
+      </select>
+    </div>
+    <div class="espacio">
+        <label for="lector" class="datos">Cliente:</label>
+        <select class="tipo_doc" id="lectores" [(ngModel)]="reserva.cliente" name="lectores">
+          <option *ngFor="let cli of cliente" [ngValue]="cli">{{cli.nombres}}</option>
+        </select>
+      </div>
+      <div class="espacio">
+        <label for="lector" class="datos">Hotel:</label>
+        <select class="tipo_doc" id="lectores" [(ngModel)]="reserva.hotel" name="lectores">
+          <option *ngFor="let hot of hotel" [ngValue]="hot">{{hot.nombre}}</option>
+        </select>
+      </div>
+      <div class="espacio">
+        <label for="lector" class="datos">Sucursal:</label>
+        <select class="tipo_doc" id="lectores" [(ngModel)]="reserva.sucursal" name="lectores">
+          <option *ngFor="let suc of sucursal" [ngValue]="suc">{{suc.direccion}}</option>
+        </select>
+      </div>
+  
+    <button type="submit">Guardar</button>
+  </form>

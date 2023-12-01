@@ -1,0 +1,30 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+
+
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    children: [
+      
+      {
+        path: 'viajes',
+        loadChildren: () => import('../viajes/viajes.module').then(m => m.ViajesModule)
+      },
+      {
+        path: '**',
+        redirectTo: 'viajes'
+      },
+    ]
+  }
+];
+
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class HomeRoutingModule { }

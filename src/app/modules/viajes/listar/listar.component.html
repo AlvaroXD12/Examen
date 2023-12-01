@@ -1,0 +1,45 @@
+
+     <div>
+        <a href="/menu"><img src="/assets/Imagenes/atras.png" class="boton_regresar"></a>
+        <p class="Titulo">VIAJES</p>
+    </div>
+    <div class="crear_buscar">
+        <div class="boton_crear">
+            
+                <p>REGISTRAR</p>
+            
+        </div>
+    </div>
+    <div class="container_tabla">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th class="nombre_afiliacion">ID</th>
+                    <th class="nombre_afiliacion">Numero de Pasajeros</th>
+                    <th class="nombre_afiliacion">Fecha Viaje</th>
+                    <th class="nombre_afiliacion">Pasaje</th>
+                    <th class="nombre_afiliacion">Placa</th>
+                    <th class="nombre_afiliacion">Conductor</th>
+                    <th class="nombre_afiliacion">Ruta</th>
+                    <th colspan="3" class="acción">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let viaj of viajes">
+                    <td>{{viaj.id}}</td>
+                    <td>{{viaj.numePasajero}}</td>
+                    <td>{{viaj.fechViaje}}</td>                  
+                    <td>{{viaj.valoPasaj}}</td>
+                    <td>{{viaj.buses?.tipo}}</td> 
+                    <td>{{viaj.conductores?.nombConduc}}</td>     
+                    <td>{{viaj.rutas?.nombRuta}}</td>                   
+                    <td class="acción">
+                        <a><img
+                                src="/assets/Imagenes/editar.png" class="descargar"></a>
+                        <a><img 
+                                src="/assets/Imagenes/eliminar.png" class="descargar"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
